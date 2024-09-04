@@ -5,11 +5,11 @@ import { Register } from '../containers/Register';
 
 export const router = createBrowserRouter([
     {
-        path: '/home',
+        path: '/',
         element: <Home />,
     },
     {
-        path: '/login',
+        path: '/session',
         element: <Login />,
     },
     {

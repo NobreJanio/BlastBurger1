@@ -1,12 +1,12 @@
-
-
 import styled from 'styled-components'
 
 export const Container = styled.div`
   .carrousel-item {
     padding-right: 40px;
+    
   }
   padding-left: 40px;
+  cursor: grab;
 `
 
 export const Title = styled.h2`
