@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import BannerHome from '../../assets/banner-home.svg'
-import Background from '../../assets/background-tela-login-codeburger.svg'
+import BannerHome from '../../assets/banner-hamburguer.svg'
+import Background from '../../assets/background-login.svg'
 
 export const Banner = styled.div`
   background: url('${BannerHome}');

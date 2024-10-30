@@ -5,7 +5,7 @@ import { Register } from '../containers/Register';
 
 export const router = createBrowserRouter([
     {
-        path: '/',
+        path: '/home',
         element: <Home />,
     },
     {

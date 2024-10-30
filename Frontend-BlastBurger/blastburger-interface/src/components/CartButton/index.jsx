@@ -1,4 +1,4 @@
-import Cart from "../../assets/cart-icon.svg"
+import Cart from "../../assets/cart.svg"
 import { ContainerButton } from "./styles"
 
 export function CartButton({ ...props }) {

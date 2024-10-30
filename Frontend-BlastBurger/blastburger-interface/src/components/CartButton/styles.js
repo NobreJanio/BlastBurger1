@@ -13,9 +13,4 @@ export const ContainerButton = styled.button`
     &:hover {
         background-color: #6f357c;
     }
-
-    img {
-        
-        background-color: #ffffff;
-    }
 `
