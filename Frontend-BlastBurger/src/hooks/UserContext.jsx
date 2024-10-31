@@ -9,17 +9,20 @@ export const UserProvider = ({ children }) => {
         setUserInfo(userInfo);
 
         localStorage.setItem('devburguer:userData', JSON.stringify(userInfo));
+        localStorage.setItem('token', token);
     };
 
     const logout = () => {
         setUserInfo({});
         localStorage.removeItem('devburguer:userData');
+        localStorage.removeItem('token');
     };
 
     useEffect(() => {
         const userInfoLocalStorage = localStorage.getItem('devburguer:userData');
+        const tokenLocalStorage = localStorage.getItem('token');
 
-        if (userInfoLocalStorage) {
+        if (userInfoLocalStorage && tokenLocalStorage) {
             setUserInfo(JSON.parse(userInfoLocalStorage));
         }
     }, []);
