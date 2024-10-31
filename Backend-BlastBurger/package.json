@@ -4,7 +4,8 @@
   "description": "DevBurger",
   "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon server.js", 
+    "start": "node server.js"    
   },
   "author": {
     "name": "Jânio Júnior",
