@@ -6,6 +6,9 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer"
 import { Menu } from "../containers/Menu";
 import { Cart } from '../containers/Cart'
+import { Checkout } from '../containers/Checkout'
+import { CompletePayment } from '../containers/CompletePayment'
+
 
 
 export const router = createBrowserRouter([
@@ -46,6 +49,14 @@ export const router = createBrowserRouter([
                 <Footer />
             </>
         ),
+    },
+    {
+        path: '/checkout',
+        element: <Checkout />,
+    },
+    {
+        path: '/completo',
+        element: <CompletePayment />,
     },
 
 ]);  // <--- Error here 
