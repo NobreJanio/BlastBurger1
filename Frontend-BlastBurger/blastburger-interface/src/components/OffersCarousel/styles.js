@@ -15,7 +15,7 @@ export const Container = styled.div`
     }
 
   padding-left: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 90px;
     
   
 `

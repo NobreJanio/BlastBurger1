@@ -3,7 +3,7 @@ import * as Yup from 'yup'
 
 import User from '../models/User'
 
-class UserControler {
+class UserController {
     async store(request, response) {
         const schema = Yup.object().shape({
             name: Yup.string().required(),
@@ -43,4 +43,4 @@ class UserControler {
     }
 };
 
-export default new UserControler()
+export default new UserController()

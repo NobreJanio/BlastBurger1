@@ -71,7 +71,7 @@ export function Register() {
 
             if (status === 200 || status === 201) {
                 setTimeout(() => {
-                    navigate('/login')
+                    navigate('/session')
                 }, 2000)
                 toast.success('Conta criada com sucesso!')
             } else if (status === 400) {
@@ -123,7 +123,7 @@ export function Register() {
 
                     <Button type="submit">Criar conta</Button>
                 </Form>
-                <p>Já possui conta? <Link to='/login'>Clique aqui</Link></p>
+                <p>Já possui conta? <Link to='/session'>Clique aqui</Link></p>
             </RightContainer>
         </Container>
     )

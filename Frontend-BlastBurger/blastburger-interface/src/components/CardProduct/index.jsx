@@ -1,9 +1,20 @@
 import PropTypes from 'prop-types'
+
+import { useCart } from '../../hooks/CartContext'
 import { CardImage, Container } from './styles'
 import { CartButton } from '../CartButton'
 
+import { toast } from 'react-toastify'
+
 
 export function CardProduct({ product }) {
+    const { putProductInCart } = useCart();
+
+    const handleAddToCart = (product) => {
+        putProductInCart(product);
+        toast.success(`${product.name} adicionado ao carrinho!`); // Exibir toast
+    };
+
 
     return (
         <Container>
@@ -12,7 +23,7 @@ export function CardProduct({ product }) {
                 <p>{product.name}</p>
                 <strong>{product.currencyValue}</strong>
             </div>
-            <CartButton></CartButton>
+            <CartButton onClick={() => handleAddToCart(product)}></CartButton>
         </Container>
     )
 }

@@ -4,6 +4,7 @@ import * as yup from "yup"
 import { api } from "../../services/api"
 import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
+import { useUser } from '../../hooks/UserContext';
 
 import Logo from '../../assets/logo.png'
 import { Button } from '../../components/Button'
@@ -18,7 +19,9 @@ import {
 } from './styles'
 
 export function Login() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const { putUserData } = useUser();
+
     const schema = yup
         .object({
             email:
@@ -62,9 +65,13 @@ export function Login() {
             );
 
             const token = response.data.token; // Captura o token da resposta
+            const userName = response.data.name;
+
+            console.log(userName);
 
             if (token) {
                 localStorage.setItem('token', token);
+                putUserData({ name: userName });
             } else {
                 console.error('Token não foi encontrado na resposta');
             }

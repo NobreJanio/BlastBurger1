@@ -22,11 +22,12 @@ class Database {
     this.connection = new Sequelize(configDatabase); // para criar uma nova conexão com o banco de dados utilizando os parâmetros fornecidos na variável configDatabase.
     models.map((model) => model.init(this.connection)).map( // para passar a conexão (this.connection) para cada modelo, assim eles podem fazer uso dessa conexão para interagir com o banco de dados ou realizar outras operações relacionadas à persistência de dados.
       (model) => model.associate && model.associate(this.connection.models), // avisa ao banco que existe relacionamentos 
-    ) 
+    )
   }
 
   mongo() {
-    this.mongoConnction = mongoose.connect('mongodb://localhost:27017/devburger')
+    const mongoUrl = process.env.MONGODB_URL || 'mongodb://localhost:27017/devburger';
+    this.mongoConnection = mongoose.connect(mongoUrl)
   }
 
 }
