@@ -8,7 +8,6 @@ import './database';
 class App {
   constructor() {
     this.app = express();
-
     this.app.use(cors());
     this.middlewares();
     this.routes();
@@ -30,6 +29,14 @@ class App {
 
   routes() {
     this.app.use(routes);
+  }
+
+  // Novo método para iniciar o servidor
+  start() {
+    const PORT = process.env.PORT || 3000; // Usa a porta do Render ou 3000 como padrão
+    this.app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
   }
 }
 
