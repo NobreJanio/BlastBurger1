@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import app from './app'
 
 // Use a variável de ambiente PORT ou 3001 como padrão
