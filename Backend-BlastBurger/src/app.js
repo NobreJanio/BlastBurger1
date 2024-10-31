@@ -1,9 +1,9 @@
-const express = require('express');
-const { resolve } = require('node:path');
-const cors = require('cors');
-const routes = require('./routes');
+import express from 'express';
+import { resolve } from 'node:path';
+import cors from 'cors'
+import routes from './routes';
 
-require('./database');
+import './database';
 
 class App {
   constructor() {
