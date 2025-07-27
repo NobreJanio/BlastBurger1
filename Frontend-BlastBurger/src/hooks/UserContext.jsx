@@ -9,7 +9,7 @@ export const UserProvider = ({ children }) => {
         setUserInfo(userInfo);
 
         localStorage.setItem('devburguer:userData', JSON.stringify(userInfo));
-        localStorage.setItem('token', token);
+        localStorage.setItem('token', userInfo.token);
     };
 
     const logout = () => {

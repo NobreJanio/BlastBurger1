@@ -19,14 +19,16 @@ routes.post('/users', UserController.store); // Criar um usuário
 
 routes.post('/session', SessionController.store); // Login
 
+// Rotas públicas para arquivos estáticos (não precisam de autenticação)
+routes.get('/products', ProductController.index);
+routes.get('/categories', CategoryController.index);
+
 routes.use(authMiddleware); // Verificação de login
 
 routes.post('/products', upload.single('file'), ProductController.store);
-routes.get('/products', ProductController.index);
 routes.put('/products/:id', upload.single('file'), ProductController.update);
 
 routes.post('/categories', upload.single('file'), CategoryController.store);
-routes.get('/categories', CategoryController.index);
 routes.put('/categories/:id', upload.single('file'), CategoryController.update);
 
 routes.post('/orders', upload.single('file'), OrderController.store);

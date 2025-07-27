@@ -5,9 +5,7 @@ import { Table } from '../index';
 import { ButtonGroup, EmptyCart, ProductImage, ProductTotalPrice, TrashImage } from './styles';
 
 export function CartItems() {
-    const { cartProducts, decreaseProduct, increaseProduct, deleteProduct } = useCart();
-
-    console.log('Cart Products in CartItems:', cartProducts);
+    const { cartProducts, increaseProduct, decreaseProduct, deleteProduct } = useCart();
 
     return (
         <Table.Root>

@@ -26,8 +26,13 @@ class Database {
   }
 
   mongo() {
-    const mongoUrl = process.env.MONGODB_URL || 'mongodb://localhost:27017/devburger';
-    this.mongoConnection = mongoose.connect(mongoUrl)
+    const mongoUrl = 'mongodb://localhost:27017/devburger';
+    this.mongoConnection = mongoose.connect(mongoUrl).then(() => {
+      console.log('MongoDB connected successfully');
+    }).catch((error) => {
+      console.log('MongoDB connection failed:', error.message);
+      console.log('Continuing without MongoDB...');
+    });
   }
 
 }

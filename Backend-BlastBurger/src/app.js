@@ -16,6 +16,10 @@ class App {
 
   middlewares() {
     this.app.use(express.json());
+  }
+
+  routes() {
+    // Rotas de arquivos estáticos (sem autenticação)
     this.app.use(
       '/product-file',
       express.static(resolve(__dirname, '..', 'uploads')),
@@ -25,9 +29,8 @@ class App {
       '/category-file',
       express.static(resolve(__dirname, '..', 'uploads')),
     );
-  }
-
-  routes() {
+    
+    // Outras rotas (com autenticação quando necessário)
     this.app.use(routes);
   }
 

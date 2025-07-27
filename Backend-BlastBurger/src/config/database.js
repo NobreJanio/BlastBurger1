@@ -3,7 +3,7 @@ module.exports = {
     host: 'localhost',
     username: 'postgres',
     password: 'postgres',
-    database: 'blastburger',
+    database: 'devburger',
     port: 5432,
     define: {
         timestamps: true, //  auto add createdAt and updatedAt fields

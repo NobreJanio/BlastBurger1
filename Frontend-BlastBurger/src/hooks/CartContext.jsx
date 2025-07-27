@@ -15,13 +15,15 @@ export const CartProvider = ({ children }) => {
             newProductsInCart[cartIndex].quantity += 1;
         } else {
             // Adiciona um novo produto ao carrinho
-            const newProduct = { ...product, quantity: 1 }; // Aqui garantimos que quantity seja inicializado
+            const newProduct = { 
+                ...product, 
+                quantity: 1,
+                url: product.url || `/product-file/${product.path}`
+            };
             newProductsInCart = [...cartProducts, newProduct];
         }
         setCartProducts(newProductsInCart);
         updateLocalStorage(newProductsInCart);
-
-        console.log(cartProducts)
     };
 
     const clearCart = () => {
@@ -68,7 +70,12 @@ export const CartProvider = ({ children }) => {
         const clientCartData = localStorage.getItem('devburguer:cartInfo');
 
         if (clientCartData) {
-            setCartProducts(JSON.parse(clientCartData));
+            const parsedData = JSON.parse(clientCartData);
+            const productsWithUrl = parsedData.map(product => ({
+                ...product,
+                url: product.url || `/product-file/${product.path}`
+            }));
+            setCartProducts(productsWithUrl);
         }
     }, []);
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel'
 import "react-multi-carousel/lib/styles.css";
 
@@ -20,7 +20,8 @@ export function OffersCarousel() {
                 .filter(product => product.offer)
                 .map(product => ({
                     ...product,
-                    currencyValue: formatCurrency(product.price) // Formatação correta do preço
+                    currencyValue: formatCurrency(product.price), // Formatação correta do preço
+                    url: `/product-file/${product.path}` // URL completa da imagem
                 }));
 
             setOffers(onlyOffers)

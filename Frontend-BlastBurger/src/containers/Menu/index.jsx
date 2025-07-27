@@ -39,6 +39,7 @@ export function Menu() {
 
             const newProducts = data.map((product) => ({
                 currencyValue: formatCurrency(product.price),
+                url: `/product-file/${product.path}`,
                 ...product,
             }));
             setProducts(newProducts);

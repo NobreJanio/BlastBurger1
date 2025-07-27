@@ -19,7 +19,7 @@ import {
 } from './styles'
 
 export function Register() {
-    const navigate = useNavigate
+    const navigate = useNavigate()
     const schema = yup
         .object({
             name: yup
@@ -74,13 +74,14 @@ export function Register() {
                     navigate('/session')
                 }, 2000)
                 toast.success('Conta criada com sucesso!')
-            } else if (status === 400) {
+            } else if (status === 409) {
                 toast.error('Email já cadastrado! Faça login para continuar')
+            } else if (status === 400) {
+                toast.error('Dados inválidos! Verifique as informações')
             } else {
                 throw new Error()
             }
 
-            console.log(status);
         } catch (error) {
             toast.error('Falha no sistema! Tente novamente mais tarde')
         }
